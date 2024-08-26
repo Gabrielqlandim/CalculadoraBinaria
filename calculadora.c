@@ -60,31 +60,51 @@ void BCD(int numero, char *BCD2){
 
 int main(void){
     system("CLS");
-    int numero;
-    printf("Digite um numero: ");
-    scanf("%d", &numero);
-    char binario[64] = "";
-    char octal[64] = "";
-    char hexal[64] = "";
-    char bcd[256] = "";
-    printf("O numero %d em binário e:\n ", numero);
-    decimal(numero, binario);
-    printf("\n");
-    printf("O numero %d em octa e:\n ", numero);
-    octa(numero, octal);
-    printf("\n");
-    printf("O numero %d em hexa e:\n ", numero);
-    hexa(numero, hexal);
-    printf("\n");
-    printf("O numero %d em BCD e:\n ", numero);
-    BCD(numero,bcd);
-    printf("\n");
+    int numero, e=4;
 
-    printf("Resultados Finais: \n");
-    printf("Binário: %s\n", binario);
-    printf("Octal: %s\n", octal);
-    printf("Hexadecimal: %s\n", hexal);
-    printf("BCD: %s\n", bcd);
+    while(e!=0){
+        printf("Digite sua escolha [1/2/3/0]: ");
+        scanf("%d",&e);
 
+        if(e==0){
+            printf("Saindo");
+            break;
+        }
+
+        else if(e==1){
+        printf("Digite um numero: ");
+        scanf("%d", &numero);
+        char binario[64] = "";
+        char octal[64] = "";
+        char hexal[64] = "";
+        char bcd[256] = "";
+        printf("O numero %d em binário e:\n ", numero);
+        decimal(numero, binario);
+        printf("\n");
+        printf("O numero %d em octa e:\n ", numero);
+        octa(numero, octal);
+        printf("\n");
+        printf("O numero %d em hexa e:\n ", numero);
+        hexa(numero, hexal);
+        printf("\n");
+        printf("O numero %d em BCD e:\n ", numero);
+        BCD(numero,bcd);
+        printf("\n");
+
+        printf("Resultados Finais: \n");
+        printf("Binário: %s\n", binario);
+        printf("Octal: %s\n", octal);
+        printf("Hexadecimal: %s\n", hexal);
+        printf("BCD: %s\n", bcd);
+
+        }
+        else if(e==2){
+
+        }
+        else if(e==3){
+
+        }
+
+    }
     return 0;
 }
