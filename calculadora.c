@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 void decimal(int numero, char *binario){
     if(numero>1){
         decimal(numero/2, binario);
@@ -58,9 +59,25 @@ void BCD(int numero, char *BCD2){
 
 }
 
+void impressao(int16_t numero){
+    printf("Passo a passo para %d em complemento a 2 com 16 bits:\n", numero);
+
+    for(int i = 15; i >= 0; i--){
+        int bit = (numero >> i) & 1;
+        printf("Bit %d (2^%d): %d\n", 15 - i, i, bit);
+    }
+
+    printf("Representação final em 16 bits: ");
+    for(int i = 15; i >= 0; i--){
+        printf("%d", (numero >> i) & 1);
+    }
+    printf("\n");
+}
+
 int main(void){
     system("CLS");
     int numero, e=4;
+    int16_t numero2;
 
     while(e!=0){
         printf("Digite sua escolha [1/2/3/0]: ");
@@ -99,10 +116,17 @@ int main(void){
 
         }
         else if(e==2){
-
+            printf("Digite um numero decimal parar ser convertido em 16 bits: ");
+            scanf("%hd", &numero2);
+            impressao(numero2);
+            printf("\n");
         }
         else if(e==3){
 
+
+        }
+        else{
+            printf("Opção invalida");
         }
 
     }
