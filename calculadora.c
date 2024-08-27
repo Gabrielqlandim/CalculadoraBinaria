@@ -1,3 +1,5 @@
+//Gabriel Queiroz Silva Landim. 3°A 26/08/2024
+//Comecei as 8 da manhã, implementei o primeiro commit as 9 e no mesmo horario atualizei, deixando mais funcional. As 15 fiz a segunda questao e as 21 fiz a ultima, dando o ultimo commit agr com o cabeçalho que havia esquecido.
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
