@@ -74,6 +74,50 @@ void impressao(int16_t numero){
     printf("\n");
 }
 
+void Float(float numero3){
+    uint32_t bits;
+    memcpy(&bits, &numero3, sizeof(bits));
+
+    printf("Sinal: %d\n" , (bits>>31) & 1);
+    int expo = (bits >> 23) & 0xFF;
+    printf("Expoente: ");
+    for(int i=7;i>=0;i--){
+        printf("%d", (expo >>i) & 1);
+    }
+    printf(" (valor: %d)\n", expo);
+
+    int expoenteComVies = expo - 127;
+    printf("Expoente com Viés (127): %d\n", expoenteComVies);
+
+    printf("Fração: ");
+    for (int i = 22; i >= 0; i--) {
+        printf("%d", (bits >> i) & 1);
+    }
+    printf("\n");
+}
+void Double(double numero4){
+    uint64_t bits;
+    memcpy(&bits, &numero4, sizeof(bits));
+
+    printf("Sinal: %d\n", (bits >> 63) & 1);
+    
+    int expoente = (bits >> 52) & 0x7FF;
+    printf("Expoente: ");
+    for (int i = 10; i >= 0; i--) {
+        printf("%d", (expoente >> i) & 1);
+    }
+    printf(" (valor: %d)\n", expoente);
+
+    int expoenteComVies = expoente - 1023;
+    printf("Expoente com Viés (1023): %d\n", expoenteComVies);
+
+    printf("Fração: ");
+    for (int i = 51; i >= 0; i--) {
+        printf("%d", (bits >> i) & 1);
+    }
+    printf("\n");
+}
+
 int main(void){
     system("CLS");
     int numero, e=4;
@@ -122,8 +166,16 @@ int main(void){
             printf("\n");
         }
         else if(e==3){
-
-
+            float numero3;
+            double numero4;
+            printf("Digite um numero real: ");
+            scanf("%f", &numero3);
+            printf("Float: ");
+            Float(numero3);
+            numero4 = (double)numero3;
+            printf("\n");
+            printf("Double: ");
+            Double(numero4);
         }
         else{
             printf("Opção invalida");
